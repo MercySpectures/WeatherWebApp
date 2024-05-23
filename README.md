@@ -41,9 +41,9 @@ Before you begin, ensure you have met the following requirements:
     ```sh
     npm install
     ```
-4. Open `index,js` file and add your OpenWeather API key:
+4. Open `index.js` file and add your OpenWeather API key:
     ```env
-    API_KEY=your_api_key_here
+    API_KEY="Your API_KEY"
     ```
 
 ## Usage
