@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Weather App</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Weather App ☁️</h1>
+        <form action="/fetchWeather" method="post">
+            <input type="number" name="zipCode" placeholder="Enter your zipcode">
+            <input type="submit" value="Submit">
+        </form>
+        <% if (locals.content) { %>
+            <div class="weatherInfo">
+                <div class="title">
+                    <h2><%=content.name%></h2>
+                    <span>(<%= content.coord.lon%>, <%= content.coord.lat%>)</span>
+                </div>
+                <div class="data">
+                    <div class="left">
+                        <p><strong>Weather Type -</strong> <%= content.weather[0].main %></p>
+                        <p><strong>Weather Description -</strong> <%= content.weather[0].description %></p>
+                        <p><strong>Humidity - </strong><%= content.main.humidity %></p>
+                    </div>
+                    <div class="right">
+                        <p><strong>Temperature -</strong> <%= content.main.temp %></p>
+                        <p><strong>Temperature Min -</strong> <%= content.main.temp_min %></p>
+                        <p><strong>Temperature Max - </strong><%= content.main.temp_max %></p>
+                    </div>
+                </div>
+            </div>
+        <% } else {%>
+            <p>Data not received. Wrong input or server error.</p>
+        <% } %>
+    </div>
+</body>
+</html>
